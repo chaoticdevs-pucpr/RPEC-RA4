@@ -393,7 +393,9 @@ public class BestiarioGalactico {
         long fim = System.nanoTime();
         e.tempo = fim - inicio;
 
-        System.out.printf("%-15s | %12d | %12d | %12d | %12d%n", nome, original.length, e.tempo / 1_000_000, e.comparacoes, e.trocas + e.deslocamentos);
+        double tempoMs = e.tempo / 1_000_000.0;
+
+        System.out.printf("%-15s | %12d | %12.4f | %12d | %12d%n", nome, original.length, tempoMs, e.comparacoes, e.trocas + e.deslocamentos);
     }
 
     // Grande Corrida
