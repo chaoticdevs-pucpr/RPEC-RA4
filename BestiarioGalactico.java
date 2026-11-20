@@ -1,8 +1,7 @@
-
+import java.io.File;
+import java.io.FileWriter;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.HashSet;
-import java.util.Set;
 
 public class BestiarioGalactico {
 
@@ -39,62 +38,50 @@ public class BestiarioGalactico {
         long tempo = 0;
     }
 
-    // Cria as 50 criaturas iniciais
-    static Criatura[] criarDadosIniciais() {
-        Criatura[] dados = new Criatura[50];
+    // Adiciona uma criatura no vetor
+    static Criatura[] adicionarCriatura(Criatura[] dados, Criatura nova) {
+        Criatura[] novoVetor = new Criatura[dados.length + 1];
 
-        // 20 criaturas adaptadas do apendice do projeto
-        dados[0] = new Criatura(50318842, "Zibo Zumbido", "ZORBLAX", "Marte", "Voo supersônico");
-        dados[1] = new Criatura(21004571, "Quark Quarkinho", "PLIMOR", "Marte", "Invisibilidade");
-        dados[2] = new Criatura(38820019, "Lumi Lunar", "LUNARI", "Jupiter", "Controle da luz");
-        dados[3] = new Criatura(12093355, "Gloop Gelatina", "GELATINO", "Plutao", "Regeneracao");
-        dados[4] = new Criatura(77410028, "Cometa Clotilde", "COMETIX", "Venus", "Supervelocidade");
-        dados[5] = new Criatura(45001276, "Pixel Pulsar", "PIXELON", "Mercurio", "Manipulacao digital");
-        dados[6] = new Criatura(63390114, "Vovo Vortex", "VORTEX", "Vega", "Controle gravitacional");
-        dados[7] = new Criatura(29981530, "Plim Plutonico", "PLUTONIANO", "Plutao", "Teletransporte");
-        dados[8] = new Criatura(84120967, "Fafa Foguete", "FOGUETIX", "Venus", "Propulsao");
-        dados[9] = new Criatura(16672043, "Nebulosa Nina", "NEBULON", "Netuno", "Criacao de nevoa");
-        dados[10] = new Criatura(57033218, "Orbi Orbital", "ORBITRON", "Saturno", "Manipulacao de orbitas");
-        dados[11] = new Criatura(33450981, "Tico Telescopio", "TELESCOPIX", "Marte", "Visao telescopica");
-        dados[12] = new Criatura(90215574, "Jujuba Jupiteriana", "JUJUBIX", "Jupiter", "Criacao de doces");
-        dados[13] = new Criatura(41127730, "Kiko Kepler", "KEPLERIANO", "Kepler", "Leitura espacial");
-        dados[14] = new Criatura(72208815, "Zuzu Zigue-Zague", "ZIGZAGON", "Orion", "Movimento dimensional");
-        dados[15] = new Criatura(25560349, "Mimi Meteoro", "METEORIX", "Urano", "Controle de meteoros");
-        dados[16] = new Criatura(68873002, "Astro Astrolabio", "ASTROLUX", "Sirius", "Orientacao espacial");
-        dados[17] = new Criatura(19940278, "Bolota Buraco-Negro", "NEGRON", "Andromeda", "Absorcao");
-        dados[18] = new Criatura(54417763, "Tchuca Titanica", "TITANIX", "Saturno", "Forca colossal");
-        dados[19] = new Criatura(80031496, "Gugu Galaxia", "GALACTON", "Vega", "Manipulacao sonora");
-
-        // 30 criaturas novas criadas para o projeto
-        String[] nomes = {
-            "Bilu", "Pipoca", "Zeca", "Malu", "Tutu",
-            "Biscoito", "Lulu", "Fofuxo", "Nino", "Bolinha",
-            "Pudim", "Teco", "Dudu", "Lilo", "Mimo",
-            "Cacau", "Tata", "Fifi", "Pingo", "Nana",
-            "Bubu", "Kiko", "Molejo", "Tico", "Pitu",
-            "Zaza", "Lala", "Pompom", "Bambam", "Tutuco"
-        };
-
-        String[] especies = {
-            "ALIENIX", "COSMIX", "NEBULON", "ASTRON",
-            "GALACTON", "METEORIX"
-        };
-
-        String[] planetas = {
-            "Marte", "Venus", "Jupiter", "Saturno",
-            "Netuno", "Plutao"
-        };
-
-        String[] habilidades = {
-            "Telepatia", "Superforca", "Invisibilidade",
-            "Controle do fogo", "Teletransporte", "Voo"
-        };
-
-        for (int i = 0; i < 30; i++) {
-            dados[i + 20] = new Criatura(70000000L + i, nomes[i] + " Espacial", especies[i % especies.length], planetas[i % planetas.length], habilidades[i % habilidades.length]);
+        for (int i = 0; i < dados.length; i++) {
+            novoVetor[i] = dados[i];
         }
 
+        novoVetor[dados.length] = nova;
+        return novoVetor;
+    }
+
+    // Carrega as criaturas do arquivo de texto
+    static Criatura[] carregarDados() throws Exception {
+        Criatura[] dados = new Criatura[0];
+        File arquivo = new File("criaturas.txt");
+        Scanner leitor = new Scanner(arquivo, "UTF-8");
+
+        while (leitor.hasNextLine()) {
+            String linha = leitor.nextLine().trim();
+
+            if (!linha.isEmpty()) {
+                String[] partes = linha.split(";");
+
+                long registro = Long.parseLong(partes[0].trim());
+                String nome = partes[1];
+                String especie = partes[2];
+                String planeta = partes[3];
+                String habilidade = partes[4];
+
+                Criatura nova = new Criatura(registro, nome, especie, planeta, habilidade);
+                dados = adicionarCriatura(dados, nova);
+            }
+        }
+
+        leitor.close();
         return dados;
+    }
+
+    // Salva uma nova criatura no arquivo de texto
+    static void salvarCriatura(Criatura c) throws Exception {
+        FileWriter fw = new FileWriter("criaturas.txt", true);
+        fw.write("\n" + c.registro + ";" + c.nome + ";" + c.especie + ";" + c.planeta + ";" + c.habilidade);
+        fw.close();
     }
 
     // Cadastro de uma nova criatura
@@ -335,36 +322,36 @@ public class BestiarioGalactico {
         System.out.println("Deslocamentos: " + e.deslocamentos);
     }
 
-    // Gera criaturas para a Grande Corrida
+    // Gera criaturas para a corrida
     static Criatura[] gerarCriaturas(int quantidade) {
         String[] nomes = {
-            "Zibo", "Lumi", "Gloop", "Quark", "Pixel",
-            "Nina", "Astro", "Bolota", "Cometa", "Pudim"
+                "Zibo", "Lumi", "Gloop", "Quark", "Pixel",
+                "Nina", "Astro", "Bolota", "Cometa", "Pudim"
         };
 
         String[] especies = {
-            "ZORBLAX", "LUNARI", "GELATINO",
-            "PLIMOR", "METEORIX"
+                "ZORBLAX", "LUNARI", "GELATINO",
+                "PLIMOR", "METEORIX"
         };
 
         String[] planetas = {
-            "Marte", "Venus", "Jupiter", "Netuno", "Plutao"
+                "Marte", "Venus", "Jupiter", "Netuno", "Plutao"
         };
 
         String[] habilidades = {
-            "Voo", "Telepatia", "Invisibilidade",
-            "Regeneracao", "Superforca"
+                "Voo", "Telepatia", "Invisibilidade",
+                "Regeneracao", "Superforca"
         };
 
         Criatura[] dados = new Criatura[quantidade];
 
         for (int i = 0; i < quantidade; i++) {
             dados[i] = new Criatura(
-                10000000L + i,
-                nomes[random.nextInt(nomes.length)] + " " + i,
-                especies[random.nextInt(especies.length)],
-                planetas[random.nextInt(planetas.length)],
-                habilidades[random.nextInt(habilidades.length)]
+                    10000000L + i,
+                    nomes[random.nextInt(nomes.length)] + " " + i,
+                    especies[random.nextInt(especies.length)],
+                    planetas[random.nextInt(planetas.length)],
+                    habilidades[random.nextInt(habilidades.length)]
             );
         }
         return dados;
@@ -413,7 +400,7 @@ public class BestiarioGalactico {
     static void grandeCorrida() {
         int[] quantidades = {50, 1000, 10000};
         String[] algoritmos = {
-            "Bubble Sort", "Insertion Sort", "Quick Sort"
+                "Bubble Sort", "Insertion Sort", "Quick Sort"
         };
 
         System.out.println("\n===== A GRANDE CORRIDA =====");
@@ -459,9 +446,9 @@ public class BestiarioGalactico {
     }
 
     // Menu principal
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
-        Criatura[] dados = criarDadosIniciais();
+        Criatura[] dados = carregarDados();
 
         int quantidade = dados.length;
         int opcao;
@@ -487,14 +474,8 @@ public class BestiarioGalactico {
                     Criatura nova = cadastrar(dados, quantidade);
 
                     if (nova != null) {
-                        Criatura[] novoVetor =
-                            new Criatura[quantidade + 1];
-
-                        for (int i = 0; i < quantidade; i++) {
-                            novoVetor[i] = dados[i];
-                        }
-                        novoVetor[quantidade] = nova;
-                        dados = novoVetor;
+                        dados = adicionarCriatura(dados, nova);
+                        salvarCriatura(nova);
                         quantidade++;
                     }
                     break;
@@ -517,7 +498,7 @@ public class BestiarioGalactico {
                     }
                     Criatura[] copia = dados.clone();
                     Estatisticas resultado =
-                        ordenar(copia, algoritmo, false);
+                            ordenar(copia, algoritmo, false);
 
                     System.out.println("\nCATALOGO OFICIAL ORDENADO:");
 
@@ -532,7 +513,7 @@ public class BestiarioGalactico {
                     break;
                 case 0:
                     System.out.println(
-                        "Missao encerrada. Ate a proxima, cadete!"
+                            "Missao encerrada. Ate a proxima, cadete!"
                     );
                     break;
                 default:

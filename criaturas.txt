@@ -1,0 +1,51 @@
+50318842;Zibo Zumbido;ZORBLAX;Marte;Voo supersonico
+21004571;Quark Quarkinho;PLIMOR;Marte;Invisibilidade
+38820019;Lumi Lunar;LUNARI;Jupiter;Controle da luz
+12093355;Gloop Gelatina;GELATINO;Plutao;Regeneracao
+77410028;Cometa Clotilde;COMETIX;Venus;Supervelocidade
+45001276;Pixel Pulsar;PIXELON;Mercurio;Manipulacao digital
+63390114;Vovo Vortex;VORTEX;Vega;Controle gravitacional
+29981530;Plim Plutonico;PLUTONIANO;Plutao;Teletransporte
+84120967;Fafa Foguete;FOGUETIX;Venus;Propulsao
+16672043;Nebulosa Nina;NEBULON;Netuno;Criacao de nevoa
+57033218;Orbi Orbital;ORBITRON;Saturno;Manipulacao de orbitas
+33450981;Tico Telescopio;TELESCOPIX;Marte;Visao telescopica
+90215574;Jujuba Jupiteriana;JUJUBIX;Jupiter;Criacao de doces
+41127730;Kiko Kepler;KEPLERIANO;Kepler;Leitura espacial
+72208815;Zuzu Zigue-Zague;ZIGZAGON;Orion;Movimento dimensional
+25560349;Mimi Meteoro;METEORIX;Urano;Controle de meteoros
+68873002;Astro Astrolabio;ASTROLUX;Sirius;Orientacao espacial
+19940278;Bolota Buraco-Negro;NEGRON;Andromeda;Absorcao
+54417763;Tchuca Titanica;TITANIX;Saturno;Forca colossal
+80031496;Gugu Galaxia;GALACTON;Vega;Manipulacao sonora
+70000000;Bilu Espacial;ALIENIX;Marte;Telepatia
+70000001;Pipoca Espacial;COSMIX;Venus;Superforca
+70000002;Zeca Espacial;NEBULON;Jupiter;Invisibilidade
+70000003;Malu Espacial;ASTRON;Saturno;Controle do fogo
+70000004;Tutu Espacial;GALACTON;Netuno;Teletransporte
+70000005;Biscoito Espacial;METEORIX;Plutao;Voo
+70000006;Lulu Espacial;ALIENIX;Marte;Telepatia
+70000007;Fofuxo Espacial;COSMIX;Venus;Superforca
+70000008;Nino Espacial;NEBULON;Jupiter;Invisibilidade
+70000009;Bolinha Espacial;ASTRON;Saturno;Controle do fogo
+70000010;Pudim Espacial;GALACTON;Netuno;Teletransporte
+70000011;Teco Espacial;METEORIX;Plutao;Voo
+70000012;Dudu Espacial;ALIENIX;Marte;Telepatia
+70000013;Lilo Espacial;COSMIX;Venus;Superforca
+70000014;Mimo Espacial;NEBULON;Jupiter;Invisibilidade
+70000015;Cacau Espacial;ASTRON;Saturno;Controle do fogo
+70000016;Tata Espacial;GALACTON;Netuno;Teletransporte
+70000017;Fifi Espacial;METEORIX;Plutao;Voo
+70000018;Pingo Espacial;ALIENIX;Marte;Telepatia
+70000019;Nana Espacial;COSMIX;Venus;Superforca
+70000020;Bubu Espacial;NEBULON;Jupiter;Invisibilidade
+70000021;Kiko Espacial;ASTRON;Saturno;Controle do fogo
+70000022;Molejo Espacial;GALACTON;Netuno;Teletransporte
+70000023;Tico Espacial;METEORIX;Plutao;Voo
+70000024;Pitu Espacial;ALIENIX;Marte;Telepatia
+70000025;Zaza Espacial;COSMIX;Venus;Superforca
+70000026;Lala Espacial;NEBULON;Jupiter;Invisibilidade
+70000027;Pompom Espacial;ASTRON;Saturno;Controle do fogo
+70000028;Bambam Espacial;GALACTON;Netuno;Teletransporte
+70000029;Tutuco Espacial;METEORIX;Plutao;Voo
+67676767;tung;sahur;sahir;suhar
