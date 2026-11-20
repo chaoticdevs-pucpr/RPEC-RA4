@@ -48,4 +48,3 @@
 70000027;Pompom Espacial;ASTRON;Saturno;Controle do fogo
 70000028;Bambam Espacial;GALACTON;Netuno;Teletransporte
 70000029;Tutuco Espacial;METEORIX;Plutao;Voo
-67676767;tung;sahur;sahir;suhar
