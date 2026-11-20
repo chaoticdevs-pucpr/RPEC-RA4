@@ -290,8 +290,16 @@ public class BestiarioGalactico {
     // Modo passo a passo
     static void modoPasso(Criatura[] dados) {
 
-        if (dados.length > 10) {
-            System.out.println("O modo passo a passo aceita ate 10 criaturas.");
+        int limite = 10;
+        if (dados.length < 10) {
+            limite = dados.length;
+        }
+
+        System.out.print("Quantas criaturas usar no passo a passo (1 a " + limite + ")? ");
+        int qtd = sc.nextInt();
+
+        if (qtd < 1 || qtd > limite) {
+            System.out.println("Quantidade invalida. Escolha entre 1 e " + limite + ".");
             return;
         }
 
@@ -307,14 +315,18 @@ public class BestiarioGalactico {
             return;
         }
 
-        Criatura[] copia = dados.clone();
+        Criatura[] copia = new Criatura[qtd];
+        for (int i = 0; i < qtd; i++) {
+            copia[i] = dados[i];
+        }
+
         Estatisticas e = ordenar(copia, opcao, true);
         System.out.println("\n===== RESULTADO FINAL =====");
         listar(copia);
 
         exibirEstatisticas(e);
     }
-
+    
     // Mostra os resultados
     static void exibirEstatisticas(Estatisticas e) {
         System.out.println("\nComparacoes: " + e.comparacoes);
